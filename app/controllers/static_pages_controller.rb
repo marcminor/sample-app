@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+<<<<<<< HEAD
+=======
+  
+>>>>>>> static_pages
 end
