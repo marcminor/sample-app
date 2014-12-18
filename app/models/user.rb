@@ -70,9 +70,11 @@ class User < ActiveRecord::Base
 		reset_sent_at < 2.hours.ago
 	end
 
-	def feed
-		Micropost.where("user_id = ?", id)
-	end
+	# Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
 	private
 
@@ -82,7 +84,7 @@ class User < ActiveRecord::Base
     end
 
 	def create_activation_digest
-  		self.activation_token  = User.new_token
+  	self.activation_token  = User.new_token
 		self.activation_digest = User.digest(activation_token)
 	end
 end
